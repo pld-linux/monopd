@@ -1,12 +1,12 @@
 Summary:	A dedicated game server daemon for playing Monopoly-like board games
 Summary(pl):	Dedykowany serwer dla gier planszowych typu Monopoly
 Name:		monopd
-Version:	0.9.0
+Version:	0.9.2
 Release:	1
 License:	LGPL/GPL
 Group:		Libraries
 Source0:	http://unixcode.org/downloads/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	fec55f8e481c8dd74c1dfc3facd1f006
+# Source0-md5:	d07adac034f5693fd56b8cde010dc08c
 Source1:	%{name}.init
 URL:		http://unixcode.org/monopd/
 BuildRequires:	autoconf
