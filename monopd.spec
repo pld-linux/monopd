@@ -1,14 +1,13 @@
 Summary:	A dedicated game server daemon for playing Monopoly-like board games
 Summary(pl):	Dedykowany serwer dla gier planszowych typu Monopoly
 Name:		monopd
-Version:	0.7.0
+Version:	0.8.2
 Release:	1
 License:	LGPL/GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	8f2b76309f979bc7245d1034651ae724
+# Source0-md5:	e475f080e2537fcb6b01b40f18519c31
 Source1:	%{name}.init
-Patch0:		%{name}-DESTDIR.patch
 URL:		http://unixcode.org/monopd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -30,7 +29,6 @@ u¿yciu krótkich komend i komunikatów XML.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %configure
@@ -40,7 +38,8 @@ u¿yciu krótkich komend i komunikatów XML.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_sysconfdir}/monopd.conf{-dist,}
 install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
