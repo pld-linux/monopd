@@ -25,7 +25,7 @@ communicate using short commands and XML messages.
 %description -l pl
 Monopd to dedykowany serwer dla gier planszowych typu Monopoly.
 Klienci tacy jak Atlantik ³±cz± siê z serwerem i komunikuj± przy
-u¿yciu krótkich komend i komunikatów XML.
+u¿yciu krótkich komend i komunikatów w XML-u.
 
 %prep
 %setup -q
