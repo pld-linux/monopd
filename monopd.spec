@@ -14,6 +14,7 @@ BuildRequires:	automake
 BuildRequires:	libcapsinetwork-devel >= 0.2.5
 BuildRequires:	libmath++ >= 0.0.3
 BuildRequires:	libstdc++-devel
+BuildRequires:	rpmbuild(macros) >= 1.176
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,7 +54,9 @@ rm -rf $RPM_BUILD_ROOT
 if [ -f /var/lock/subsys/monopd ]; then
 	/etc/rc.d/init.d/monopd restart >&2
 else
-	echo "Run \"/etc/rc.d/init.d/monopd start\" to start monopd." >&2
+	%banner %{name} -e << EOF
+Run \"/etc/rc.d/init.d/monopd start\" to start monopd.
+EOF
 fi
 
 %preun
