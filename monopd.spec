@@ -1,7 +1,7 @@
 Summary:	A dedicated game server daemon for playing Monopoly-like board games
 Summary(pl):	Dedykowany serwer dla gier planszowych typu Monopoly
 Name:		monopd
-Version:	0.6.2
+Version:	0.7.0
 Release:	1
 License:	LGPL/GPL
 Group:		Libraries
