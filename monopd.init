@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# chkconfig: 345 90 12
+# description: monopd games server
+#
+# monopd         monopd server
+
+# Source function library
+. /etc/rc.d/init.d/functions
+ 
+# Get service config
+[ -f /etc/sysconfig/monopd ] && . /etc/sysconfig/monopd
+
+case "$1" in
+  start)
+	if [ ! -f /var/lock/subsys/monopd ]; then
+		msg_starting monopd
+		daemon "su - nobody -s /bin/sh -c '/usr/bin/monopd &'"
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/monopd
+		exit $RETVAL
+	else
+		msg_already_running monopd
+		exit 1
+	fi
+        ;;
+  stop)
+	if [ -f /var/lock/subsys/monopd ]; then
+		msg_stopping
+		rm /var/lock/subsys/monopd
+		killproc monopd
+		RETVAL=$?
+		exit $RETVAL
+	else
+		msg_not_running monopd
+		exit 1
+	fi
+        ;;
+  restart|reload)
+        $0 stop
+        $0 start
+        ;;
+  *)
+        msg_usage "$0 {start|stop|restart|reload}"
+        exit 1
+esac
+ 
+exit 0
