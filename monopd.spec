@@ -54,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 if [ -f /var/lock/subsys/monopd ]; then
 	/etc/rc.d/init.d/monopd restart >&2
 else
-	%banner %{name} -e << EOF
+	%banner %{name} -e <<EOF
 Run \"/etc/rc.d/init.d/monopd start\" to start monopd.
 EOF
 fi
