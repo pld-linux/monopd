@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL/GPL
 Group:		Libraries
 Source0:	http://easynews.dl.sourceforge.net/sourceforge/monopd/%{name}-%{version}.tar.bz2
+# Source0-md5:	8f2b76309f979bc7245d1034651ae724
 Source1:	%{name}.init
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://unixcode.org/monopd/
