@@ -66,8 +66,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-# isn't COPYING just GPL?
-%doc AUTHORS ChangeLog NEWS README TODO COPYING README.monopigator doc/api/gameboard
+%doc AUTHORS ChangeLog NEWS README TODO README.monopigator doc/api/gameboard
 %attr(755,root,root) %{_bindir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/monopd.conf
 %attr(754,root,root) /etc/rc.d/init.d/monopd
