@@ -11,9 +11,9 @@ Patch0:		%{name}-DESTDIR.patch
 URL:		http://unixcode.org/monopd/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libstdc++-devel
 BuildRequires:	libcapsinetwork-devel >= 0.2.2
 BuildRequires:	libmath++ >= 0.0.3
+BuildRequires:	libstdc++-devel
 Requires(post,preun):   /sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,6 +26,27 @@ communicate using short commands and XML messages.
 Monopd to dedykowany serwer dla gier planszowych typu Monopoly.
 Klienci tacy jak Atlantik ³±cz± siê z serwerem i komunikuj± przy
 u¿yciu krótkich komend i komunikatów XML.
+
+%prep
+%setup -q
+%patch0 -p1
+
+%build
+%configure
+
+%{__make}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+mv -f $RPM_BUILD_ROOT%{_sysconfdir}/monopd.conf{-dist,}
+install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/monopd
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add monopd
@@ -43,30 +64,13 @@ if [ "$1" = "0" ]; then
 	/sbin/chkconfig --del monopd
 fi
 
-%prep
-%setup -q
-%patch0 -p1
-
-%build
-%configure
-
-%{__make}
-
-%install
-rm -rf $RPM_BUILD_ROOT
-
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-mv $RPM_BUILD_ROOT/etc/monopd.conf-dist $RPM_BUILD_ROOT/etc/monopd.conf
-install -d $RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/
-install %{SOURCE1} /$RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/monopd
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
 %defattr(644,root,root,755)
+# isn't COPYING just GPL?
 %doc AUTHORS ChangeLog NEWS README TODO COPYING README.monopigator doc/api/gameboard
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/monopd.conf
-%attr(755,root,root) %{_sysconfdir}/rc.d/init.d/monopd
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/monopd.conf
+%attr(754,root,root) /etc/rc.d/init.d/monopd
+%dir %{_datadir}/monopd
+%dir %{_datadir}/monopd/games
 %{_datadir}/monopd/games/*
