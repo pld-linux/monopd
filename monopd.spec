@@ -1,17 +1,17 @@
 Summary:	A dedicated game server daemon for playing Monopoly-like board games
 Summary(pl):	Dedykowany serwer dla gier planszowych typu Monopoly
 Name:		monopd
-Version:	0.8.2
+Version:	0.9.0
 Release:	1
 License:	LGPL/GPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	e475f080e2537fcb6b01b40f18519c31
+Source0:	http://unixcode.org/downloads/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	fec55f8e481c8dd74c1dfc3facd1f006
 Source1:	%{name}.init
 URL:		http://unixcode.org/monopd/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libcapsinetwork-devel >= 0.2.2
+BuildRequires:	libcapsinetwork-devel >= 0.2.5
 BuildRequires:	libmath++ >= 0.0.3
 BuildRequires:	libstdc++-devel
 Requires(post,preun):	/sbin/chkconfig
