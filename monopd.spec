@@ -5,9 +5,10 @@ Version:	0.9.2
 Release:	1
 License:	LGPL/GPL
 Group:		Libraries
-Source0:	http://unixcode.org/downloads/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://robertjohnkaper.com/downloads/atlantik/%{name}-%{version}.tar.bz2
 # Source0-md5:	d07adac034f5693fd56b8cde010dc08c
 Source1:	%{name}.init
+# redirects to http://www.robertjohnkaper.com/software/atlantik/
 URL:		http://unixcode.org/monopd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -16,6 +17,7 @@ BuildRequires:	libmath++ >= 0.0.3
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.176
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -71,7 +73,7 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO README.monopigator doc/api/gameboard
 %attr(755,root,root) %{_bindir}/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/monopd.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/monopd.conf
 %attr(754,root,root) /etc/rc.d/init.d/monopd
 %dir %{_datadir}/monopd
 %dir %{_datadir}/monopd/games
