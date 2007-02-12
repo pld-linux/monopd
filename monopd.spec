@@ -1,5 +1,5 @@
 Summary:	A dedicated game server daemon for playing Monopoly-like board games
-Summary(pl):	Dedykowany serwer dla gier planszowych typu Monopoly
+Summary(pl.UTF-8):   Dedykowany serwer dla gier planszowych typu Monopoly
 Name:		monopd
 Version:	0.9.2
 Release:	1
@@ -25,10 +25,10 @@ Monopd is a dedicated game server daemon for playing Monopoly-like
 board games. Clients such as Atlantik connect to the server and
 communicate using short commands and XML messages.
 
-%description -l pl
+%description -l pl.UTF-8
 Monopd to dedykowany serwer dla gier planszowych typu Monopoly.
-Klienci tacy jak Atlantik ³±cz± siê z serwerem i komunikuj± przy
-u¿yciu krótkich komend i komunikatów w XML-u.
+Klienci tacy jak Atlantik Å‚Ä…czÄ… siÄ™ z serwerem i komunikujÄ… przy
+uÅ¼yciu krÃ³tkich komend i komunikatÃ³w w XML-u.
 
 %prep
 %setup -q
