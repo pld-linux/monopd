@@ -1,5 +1,5 @@
 Summary:	A dedicated game server daemon for playing Monopoly-like board games
-Summary(pl.UTF-8):   Dedykowany serwer dla gier planszowych typu Monopoly
+Summary(pl.UTF-8):	Dedykowany serwer dla gier planszowych typu Monopoly
 Name:		monopd
 Version:	0.9.2
 Release:	1
