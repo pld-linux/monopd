@@ -1,15 +1,14 @@
 Summary:	A dedicated game server daemon for playing Monopoly-like board games
 Summary(pl.UTF-8):	Dedykowany serwer dla gier planszowych typu Monopoly
 Name:		monopd
-Version:	0.9.2
-Release:	1
+Version:	0.9.3
+Release:	0.1
 License:	LGPL/GPL
 Group:		Libraries
 Source0:	http://robertjohnkaper.com/downloads/atlantik/%{name}-%{version}.tar.bz2
-# Source0-md5:	d07adac034f5693fd56b8cde010dc08c
+# Source0-md5:	d0c4876bb24e8c961012a8ef4894fe2d
 Source1:	%{name}.init
-# redirects to http://www.robertjohnkaper.com/software/atlantik/
-URL:		http://unixcode.org/monopd/
+URL:		http://www.robertjohnkaper.com/software/atlantik/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libcapsinetwork-devel >= 0.2.5
