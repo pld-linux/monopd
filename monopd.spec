@@ -63,7 +63,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc API AUTHORS ChangeLog NEWS README TODO README.monopigator doc/api/gameboard
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/monopd
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/monopd.conf
 %attr(754,root,root) /etc/rc.d/init.d/monopd
 %dir %{_datadir}/monopd
