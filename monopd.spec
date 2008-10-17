@@ -52,19 +52,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add monopd
-if [ -f /var/lock/subsys/monopd ]; then
-	/etc/rc.d/init.d/monopd restart >&2
-else
-	%banner %{name} -e <<EOF
-Run \"/etc/rc.d/init.d/monopd start\" to start monopd.
-EOF
-fi
+%service monopd restart "monopd server"
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/monopd ]; then
-		/etc/rc.d/init.d/monopd stop
-	fi
+	%service monopd stop
 	/sbin/chkconfig --del monopd
 fi
 
